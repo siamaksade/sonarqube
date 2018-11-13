@@ -193,7 +193,7 @@ objects:
                 key: database-password
                 name: sonardb
           - name: FORCE_AUTHENTICATION
-            value: "true"
+            value: ${FORCE_AUTHENTICATION}
           - name: PROXY_HOST
             value: ${PROXY_HOST}
           - name: PROXY_PORT
@@ -261,7 +261,13 @@ objects:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 1
-          resources: {}
+          resources:
+            requests:
+              cpu: 200m
+              memory: 1Gi
+            limits:
+              cpu: ${SONARQUBE_CPU_LIMIT}
+              memory: ${SONARQUBE_MEMORY_LIMIT}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
@@ -386,20 +392,23 @@ parameters:
   - description: Postgres Container CPU limit
     displayName: Postgres Container CPU limit
     name: POSTGRES_CONTAINER_CPU_LIMIT
-    value: 2000m
-  - name: SONARQUBE_MEMORY
+    value: "1"
+  - name: SONARQUBE_MEMORY_LIMIT
     description: SonarQube memory
     displayName: SonarQube memory
     value: 2Gi
-  - name: SONARQUBE_CPU
+  - name: SONARQUBE_CPU_LIMIT
     description: SonarQube Container CPU limit
     displayName: SonarQube Container CPU limit
-    value: 2000m
+    value: "2"
   - name: SONARQUBE_PERSISTENT_VOLUME_SIZE
     description: The persistent storage volume for SonarQube to use for plugins/config/logs/etc...
     displayName: SonarQube Storage Space Size
     required: true
     value: 5Gi
+  - name: FORCE_AUTHENTICATION
+    displayName: Force authentication
+    value: "false"
   - name: SONAR_AUTH_REALM
     value: ''
     description: The type of authentication that SonarQube should be using (None or LDAP) (Ref - https://docs.sonarqube.org/display/PLUG/LDAP+Plugin)
