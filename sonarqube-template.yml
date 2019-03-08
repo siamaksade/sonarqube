@@ -155,10 +155,6 @@ objects:
       activeDeadlineSeconds: 21600
       recreateParams:
         timeoutSeconds: 600
-      resources:
-        limits:
-          cpu: "2"
-          memory: 2Gi
       type: Recreate
     template:
       metadata:
