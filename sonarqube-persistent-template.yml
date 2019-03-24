@@ -388,7 +388,7 @@ parameters:
   - description: Postgres Container CPU limit
     displayName: Postgres Container CPU limit
     name: POSTGRES_CONTAINER_CPU_LIMIT
-    value: "1"
+    value: "200m"
   - name: SONARQUBE_MEMORY_LIMIT
     description: SonarQube memory
     displayName: SonarQube memory
@@ -396,7 +396,7 @@ parameters:
   - name: SONARQUBE_CPU_LIMIT
     description: SonarQube Container CPU limit
     displayName: SonarQube Container CPU limit
-    value: "2"
+    value: "200m"
   - name: SONARQUBE_PERSISTENT_VOLUME_SIZE
     description: The persistent storage volume for SonarQube to use for plugins/config/logs/etc...
     displayName: SonarQube Storage Space Size
