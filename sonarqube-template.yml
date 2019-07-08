@@ -16,7 +16,7 @@ objects:
         tags: sonarqube
       from:
         kind: DockerImage
-        name: docker.io/siamaksade/sonarqube:latest
+        name: docker.io/siamaksade/sonarqube:7.9
       importPolicy: {}
       name: latest
 - apiVersion: v1
@@ -273,7 +273,7 @@ objects:
         - sonarqube
         from:
           kind: ImageStreamTag
-          name: sonarqube:latest
+          name: sonarqube:7.9
       type: ImageChange
     - type: ConfigChange
 - apiVersion: v1
