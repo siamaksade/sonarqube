@@ -153,7 +153,7 @@ objects:
       spec:
         containers:
           - name: sonarqube
-            image: docker.io/siamaksade/sonarqube:latest
+            image: ${SONAR_IMAGE}
             ports:
               - containerPort: 9000
                 protocol: TCP
