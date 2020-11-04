@@ -128,7 +128,7 @@ objects:
             - postgresql
           from:
             kind: ImageStreamTag
-            name: 'postgresql:12-el8'
+            name: 'postgresql:latest'
             namespace: 'openshift'
           lastTriggeredImage: ''
         type: ImageChange
