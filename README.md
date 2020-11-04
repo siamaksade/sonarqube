@@ -1,5 +1,8 @@
-# SonarQube Image 
+# SonarQube Template for OpenShift 
 
-This is a SonarQube image forked from the work done by Red Hat Open Innovation Labs for OpenShift:
+This is a SonarQube template using the upstream SonarQube images from DockerHub.
 
-https://github.com/rht-labs/labs-ci-cd
+To deploy on OpenShift run the following:
+```
+oc process -f sonarqube-persistent-template.yaml | oc create -f -
+```
